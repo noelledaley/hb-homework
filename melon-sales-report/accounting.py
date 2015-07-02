@@ -57,6 +57,9 @@ def separate_sales(sales_file):
 
 
 def print_CEO_report(melon_file, sales_file):
+    """
+    Prints a formatted report displaying sales and revenue data.
+    """
     print_divider()
     calculate_revenue(count_melons(melon_file))
     print_divider()

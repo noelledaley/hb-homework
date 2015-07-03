@@ -99,9 +99,10 @@ def smallest_int(number_list):
         True
 
     """
-    number_list.sort()
-
-    return number_list[0]
+    if len(number_list) > 1:
+        number_list.sort()
+        return number_list[0]
+    return None
 
 
 def largest_int(number_list):
@@ -168,8 +169,11 @@ def sum_numbers(number_list):
         0
 
     """
+    total_sum = 0
+    for number in number_list:
+        total_sum += number
 
-    return 0
+    return total_sum
 
 
 def mult_numbers(number_list):
@@ -190,8 +194,11 @@ def mult_numbers(number_list):
         1
 
     """
+    total_mult = 1
+    for number in number_list:
+        total_mult = total_mult * number
 
-    return 0
+    return total_mult
 
 
 def join_strings(word_list):
@@ -209,8 +216,11 @@ def join_strings(word_list):
         ''
 
     """
+    joined_string = ''
+    for word in word_list:
+        joined_string += word
 
-    return ""
+    return joined_string
 
 
 def average(number_list):
@@ -222,8 +232,10 @@ def average(number_list):
     There is no defined answer if the list given is empty. It's fine if
     this raises an error when given an empty list.
     """
+    sum = sum_numbers(number_list)
+    average = float(sum) / len(number_list)
 
-    return 0
+    return average
 
 
 ##############################################################################

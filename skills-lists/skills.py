@@ -117,9 +117,10 @@ def largest_int(number_list):
         True
 
     """
-    number_list.sort(reverse=True)
-
-    return number_list[0]
+    if len(number_list) > 1:
+        number_list.sort(reverse=True)
+        return number_list[0]
+    return None
 
 
 def halvesies(number_list):

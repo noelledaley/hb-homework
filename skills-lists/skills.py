@@ -21,8 +21,12 @@ def all_odd(number_list):
         []
 
     """
+    all_odd = []
+    for item in number_list:
+        if item % 2 != 0:
+            all_odd.append(item)
 
-    return []
+    return all_odd
 
 
 def all_even(number_list):
@@ -35,8 +39,11 @@ def all_even(number_list):
         []
 
     """
-
-    return []
+    all_even =[]
+    for item in number_list:
+        if item % 2 == 0:
+            all_even.append(item)
+    return all_even
 
 
 def print_indeces(my_list):

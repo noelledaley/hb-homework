@@ -65,7 +65,7 @@ def print_indeces(my_list):
 
     """
     for index in range(len(my_list)):
-        # Iterate through mylist by each index
+        # Range allows the function to iterate through my_list by index, as opposed to by item ('Toyota', 'Jeep')
         print index, my_list[index]
 
 
@@ -99,8 +99,9 @@ def smallest_int(number_list):
         True
 
     """
+    number_list.sort()
 
-    return 100
+    return number_list[0]
 
 
 def largest_int(number_list):
@@ -115,8 +116,9 @@ def largest_int(number_list):
         True
 
     """
+    number_list.sort(reverse=True)
 
-    return 0
+    return number_list[0]
 
 
 def halvesies(number_list):
@@ -131,6 +133,7 @@ def halvesies(number_list):
         [0.5, 2.5]
 
     """
+    
 
     return []
 

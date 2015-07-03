@@ -64,8 +64,9 @@ def print_indeces(my_list):
     2 Volvo
 
     """
-
-    print "Nothing at all"
+    for index in range(len(my_list)):
+        # Iterate through mylist by each index
+        print index, my_list[index]
 
 
 def long_words(word_list):
@@ -78,8 +79,12 @@ def long_words(word_list):
         []
 
     """
+    long_words = []
+    for word in word_list:
+        if len(word) > 4:
+            long_words.append(word)
 
-    return []
+    return long_words
 
 
 def smallest_int(number_list):

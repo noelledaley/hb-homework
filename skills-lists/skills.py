@@ -133,9 +133,10 @@ def halvesies(number_list):
         [0.5, 2.5]
 
     """
-    
+    for i in range(len(number_list)):
+        number_list[i] = number_list[i] / 2.0
 
-    return []
+    return number_list
 
 
 def word_lengths(word_list):
@@ -145,8 +146,11 @@ def word_lengths(word_list):
         [5, 3, 5, 4]
 
     """
+    word_lengths = []
+    for word in word_list:
+        word_lengths.append(len(word))
 
-    return []
+    return word_lengths
 
 
 def sum_numbers(number_list):

@@ -257,11 +257,19 @@ def advanced_join_strings(list_of_words):
     """
     joined = ""
     if len(list_of_words) > 1:
-        for word in list_of_words:
-            joined += "%s, " % word
+        # Only join the strings if there is more than one item in the list.
 
+        for word in list_of_words:
+            if word != list_of_words[-1]:
+                # Add the word and punctuation to the string up until the last item.
+                joined += "%s, " % word
+            else:
+                # Have to make sure the last word in the list doesn't end with a comma and space
+                joined += word
         return joined
+
     return list_of_words[0]
+    # If the list only has one item, return a string of just that item.
 
 
 ##############################################################################

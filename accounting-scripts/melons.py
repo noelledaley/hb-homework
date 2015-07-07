@@ -1,24 +1,18 @@
-melon_names = {
-    1: "Honeydew",
-    2: "Crenshaw",
-    3: "Crane",
-    4: "Casaba",
-    5: "Cantaloupe",
-}
+melons = {
 
-melon_prices = {
-    1: 0.99,
-    2: 2.00,
-    3: 2.50,
-    4: 2.50,
-    5: 0.99,
-}
+    "Honeydew": {
+    "price": 0.99, "seedlessness": True, "flesh_color": "green", "rind_color": "white", "avg_weight": 2.0},
 
-melon_seedlessness = {
-    1: True,
-    2: False,
-    3: False,
-    4: False,
-    5: False,
-}
+    "Crenshaw": {
+    "price": 2.0, "seedlessness": False, "flesh_color": "green", "rind_color": "white", "avg_weight": 2.0},
 
+    "Crane": {
+    "price": 2.50, "seedlessness": False, "flesh_color": "white", "rind_color": "green", "avg_weight": 1.5},
+
+    "Casaba": {
+    "price": 2.50, "seedlessness": False, "flesh_color": "white", "rind_color": "yellow", "avg_weight": 1.0},
+
+    "Cantaloupe": {
+    "price": 0.99, "seedlessness": False, "flesh_color": "orange", "rind_color": "brown", "avg_weight": 2.5}
+
+}

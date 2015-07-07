@@ -2,16 +2,14 @@
 Prints out all the melons in our inventory
 """
 
-from melons import melon_names, melon_seedlessness, melon_prices
+from melons import melons
 
+def print_melon(melons):
+    for melon_type, melon_data in melons.items():
+        # items returns a list of tuples, making it easy to unpack multiple variables at once
+        print melon_type
+        for description, value in melon_data.items():
+            print "%s: %r" % (description, value)
+        print "\n"
 
-def print_melon(name, seedless, price):
-    have_or_have_not = 'have'
-    if seedless:
-        have_or_have_not = 'do not have'
-
-    print "%ss %s seeds and are $%0.2f" % (name, have_or_have_not, price)
-
-
-for i in melon_names:
-    print_melon(melon_names[i], melon_seedlessness[i], melon_prices[i])
+print_melon(melons)

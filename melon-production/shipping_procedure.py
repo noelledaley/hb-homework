@@ -25,7 +25,7 @@ class Melon(object):
 
         robots.cleanerbot.clean(self)
         robots.stickerbot.apply_logo(self)
-    
+
     def __str__(self):
         """Print out information about melon."""
 
@@ -36,8 +36,15 @@ class Melon(object):
                                         self.weight,
                                         self.melon_type)
 
+# create Squash class, a type of Melon
+class Squash(Melon):
 
-# FIXME: Add Squash Class definition here.
+    # copying function from above which seems to prepare the melon
+    def prep(self):
+        robots.cleanerbot.clean(self)
+        robots.stickerbot.apply_logo(self)
+        # applying painter robot which will convert squashes to melons (?)
+        robots.painterbot.paint(self)
 
 
 def show_help():
@@ -66,7 +73,7 @@ def main():
 
     Distinguishes between melons/squashes."""
 
-    # Check to make sure we've been passed an argument on the 
+    # Check to make sure we've been passed an argument on the
     # command line.  If not, display instructions.
 
     if len(sys.argv) < 2:
@@ -87,7 +94,7 @@ def main():
         # <melon name>: <quantity>
         melon_type, quantity = line.rstrip().split(':')
         quantity = int(quantity)
-        
+
         print "\n-----"
         print "Fullfilling order of %d %s" % (quantity, melon_type)
         print "-----\n"
@@ -108,9 +115,9 @@ def main():
                 print "ORDERS FAILED TO BE FULFILLED!"
                 print "------------------------------\n"
                 sys.exit()
-            
+
             # Have the robot pick a 'melon' -- check to
-            # see if it is a Winter Squash or not. 
+            # see if it is a Winter Squash or not.
 
             if melon_type != "Winter Squash":
                 m = Melon(melon_type)
@@ -123,7 +130,7 @@ def main():
 
             # Prepare the melon
             m.prep()
-            
+
             # Evaluate the melon
 
             presentable = robots.inspectorbot.evaluate(m)

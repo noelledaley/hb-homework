@@ -47,7 +47,8 @@ def make_text(chains):
 input_path = sys.argv[1]
 input_text = open(input_path).read()
 
-chains = make_chains(input_path)
+# changed to input_text since input_path is not a file object
+chains = make_chains(input_text)
 
 random_text = make_text(chains)
 

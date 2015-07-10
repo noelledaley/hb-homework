@@ -1,4 +1,5 @@
-import argv
+# changed import argv to import sys
+import sys
 from random import choice
 
 
@@ -9,14 +10,17 @@ def make_chains(corpus):
 
     words = corpus.split()
 
-    for i in range(len(words) - 1):
+    # Have to change index to - 2 to avoid index error
+    for i in range(len(words) - 2):
         key = (words[i], words[i + 1])
         value = words[i + 2]
 
         if key not in chains:
-            chains[key] = []
-
-        chains[key].add(value)
+            # added [value], otherwise would've returned empty list
+            chains[key] = [value]
+        else:
+            # append(), not add() since this is a list
+            chains[key].append(value)
 
     return chains
 
@@ -30,7 +34,7 @@ def make_text(chains):
 
     # Keep doing this until we reach the end or until we go too
     # long for a Twitter message
-    while key in chains and count > 140:
+    while key in chains and count < 140:
 
         word = choice(chains[key])
         count += len(word)

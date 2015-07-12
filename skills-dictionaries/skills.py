@@ -32,10 +32,7 @@ def count_unique(input_string):
     distinct_words = {}
 
     for word in input_list:
-        if word not in distinct_words:
-            distinct_words[word] = 1
-        else:
-            distinct_words[word] += 1
+        distinct_words[word] = distinct_words.get(word, 0) + 1
 
     return distinct_words
 
@@ -110,39 +107,48 @@ def find_unique_common_items(list1, list2):
     return unique_set
 
 
-# def get_sum_zero_pairs(input_list):
-#     """Given a list of numbers,
-#     return list of x,y number pair lists where x + y == 0.
-#
-#     Given a list of numbers, add up each individual pair of numbers.
-#     Return a list of each pair of numbers that adds up to 0.
-#
-#
-#     For example:
-#
-#         >>> sort_pairs( get_sum_zero_pairs([1, 2, 3, -2, -1]) )
-#         [[-2, 2], [-1, 1]]
-#
-#         >>> sort_pairs( get_sum_zero_pairs([3, -3, 2, 1, -2, -1]) )
-#         [[-3, 3], [-2, 2], [-1, 1]]
-#
-#     This should always be a unique list, even if there are
-#     duplicates in the input list:
-#
-#         >>> sort_pairs( get_sum_zero_pairs([1, 2, 3, -2, -1, 1, 1]) )
-#         [[-2, 2], [-1, 1]]
-#
-#     Of course, if there are one or more zeros to pair together,
-#     that's fine, too (even a single zero can pair with itself):
-#
-#         >>> sort_pairs( get_sum_zero_pairs([1, 2, 3, -2, -1, 1, 1, 0]) )
-#         [[-2, 2], [-1, 1], [0, 0]]
-#
-#     """
-#
-#
-#
-#     return []
+def get_sum_zero_pairs(input_list):
+    """Given a list of numbers,
+    return list of x,y number pair lists where x + y == 0.
+
+    Given a list of numbers, add up each individual pair of numbers.
+    Return a list of each pair of numbers that adds up to 0.
+
+
+    For example:
+
+        >>> sort_pairs( get_sum_zero_pairs([1, 2, 3, -2, -1]) )
+        [[-2, 2], [-1, 1]]
+
+        >>> sort_pairs( get_sum_zero_pairs([3, -3, 2, 1, -2, -1]) )
+        [[-3, 3], [-2, 2], [-1, 1]]
+
+    This should always be a unique list, even if there are
+    duplicates in the input list:
+
+        >>> sort_pairs( get_sum_zero_pairs([1, 2, 3, -2, -1, 1, 1]) )
+        [[-2, 2], [-1, 1]]
+
+    Of course, if there are one or more zeros to pair together,
+    that's fine, too (even a single zero can pair with itself):
+
+        >>> sort_pairs( get_sum_zero_pairs([1, 2, 3, -2, -1, 1, 1, 0]) )
+        [[-2, 2], [-1, 1], [0, 0]]
+
+    """
+
+    all_zero_pairs = {}
+
+    for item in input_list:
+        # iterating over list a second time
+        for other_item in input_list:
+            if item + other_item == 0:
+                zero_pair = (item, other_item)
+                zero_alt = (other_item, item)
+                if zero_pair not in all_zero_pairs and zero_alt not in all_zero_pairs:
+                    all_zero_pairs[zero_pair] = None
+
+    return all_zero_pairs.keys()
 
 
 def remove_duplicates(words):

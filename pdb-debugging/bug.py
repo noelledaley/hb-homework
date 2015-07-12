@@ -1,6 +1,6 @@
-import pdb; pdb.set_trace()
-
 numbers = [1, 2, 3, 4, 10, -4, -7, 0]
+
+import pdb; pdb.set_trace()
 
 def all_even(l):
 

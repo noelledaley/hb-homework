@@ -139,6 +139,7 @@ def get_sum_zero_pairs(input_list):
 
     all_zero_pairs = {}
 
+    # there has to be a more efficient way to do this...
     for item in input_list:
         # iterating over list a second time
         for other_item in input_list:

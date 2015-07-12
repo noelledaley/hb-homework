@@ -214,51 +214,81 @@ def sort_by_word_length(words):
     return word_lengths.items()
 
 
-# def get_pirate_talk(phrase):
-#     """Translate phrase to pirate talk.
-#
-#     Given a phrase, translate each word to the Pirate-speak equivalent.
-#     Words that cannot be translated into Pirate-speak should pass through
-#     unchanged. Return the resulting sentence.
-#
-#     Here's a table of English to Pirate translations:
-#
-#     English     Pirate
-#     ----------  ----------------
-#     sir         matey
-#     hotel       fleabag inn
-#     student     swabbie
-#     boy         matey
-#     madam       proud beauty
-#     professor   foul blaggart
-#     restaurant  galley
-#     your        yer
-#     excuse      arr
-#     students    swabbies
-#     are         be
-#     lawyer      foul blaggart
-#     the         th'
-#     restroom    head
-#     my          me
-#     hello       avast
-#     is          be
-#     man         matey
-#
-#     For example:
-#
-#         >>> get_pirate_talk("my student is not a man")
-#         'me swabbie be not a matey'
-#
-#     You should treat words with punctuation as if they were different
-#     words:
-#
-#         >>> get_pirate_talk("my student is not a man!")
-#         'me swabbie be not a man!'
-#
-#     """
-#
-#     return ""
-#
+def get_pirate_talk(phrase):
+    """Translate phrase to pirate talk.
+
+    Given a phrase, translate each word to the Pirate-speak equivalent.
+    Words that cannot be translated into Pirate-speak should pass through
+    unchanged. Return the resulting sentence.
+
+    Here's a table of English to Pirate translations:
+
+    English     Pirate
+    ----------  ----------------
+    sir         matey
+    hotel       fleabag inn
+    student     swabbie
+    boy         matey
+    madam       proud beauty
+    professor   foul blaggart
+    restaurant  galley
+    your        yer
+    excuse      arr
+    students    swabbies
+    are         be
+    lawyer      foul blaggart
+    the         th'
+    restroom    head
+    my          me
+    hello       avast
+    is          be
+    man         matey
+
+    For example:
+
+        >>> get_pirate_talk("my student is not a man")
+        'me swabbie be not a matey'
+
+    You should treat words with punctuation as if they were different
+    words:
+
+        >>> get_pirate_talk("my student is not a man!")
+        'me swabbie be not a man!'
+
+    """
+
+    pirate_dict = {"    sir": "matey",
+        "hotel" : "fleabag inn",
+        "student" : "swabbie",
+        "boy" : "matey",
+        "madam" : "proud beauty",
+        "professor" : "foul blaggart",
+        "restaurant" : "galley",
+        "your" : "yer",
+        "excuse" : "arr",
+        "students" : "swabbies",
+        "are": "be",
+        "lawyer" : "foul blaggart",
+        "the": "th\'",
+        "restroom" : "head",
+        "my":"me",
+        "hello" : "avast",
+        "is":"be",
+        "man": "matey"}
+
+    phrase_list = phrase.split()
+
+    pirate_words = []
+
+    for word in phrase_list:
+        if word in pirate_dict:
+            word = pirate_dict[word]
+        pirate_words.append(word)
+
+    pirate_words = " ".join(pirate_words)
+
+    return pirate_words
+
 # # End of skills. See below for advanced problems.
 # # To work on them, set ADVANCED=True at the top of this file.
 # ############################################################################

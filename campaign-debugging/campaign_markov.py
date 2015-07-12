@@ -28,7 +28,7 @@ def make_chains(corpus):
 def make_text(chains):
     """Takes dictionary of markov chains; returns random text."""
     chain_keys = chains.keys()
-    key = chain_keys[0]
+    key = choice(chain_keys)
     words = [key[0], key[1]]
     count = 0
 

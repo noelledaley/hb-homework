@@ -1,5 +1,5 @@
 # To work on the advanced problems, set to True
-ADVANCED = False
+ADVANCED = True
 
 
 def count_unique(input_string):
@@ -28,9 +28,12 @@ def count_unique(input_string):
         {'Porcupine': 1, 'do.': 1, 'porcupine': 1, 'see,': 1}
 
     """
+    # turn input string into a list so I can iterate by words
     input_list = input_string.split()
     distinct_words = {}
 
+    # add each word to the dictionary with default value of zero.
+    # if word is already in the dictionary, add 1
     for word in input_list:
         distinct_words[word] = distinct_words.get(word, 0) + 1
 
@@ -66,7 +69,10 @@ def find_common_items(list1, list2):
 
     common_items = []
 
+    # iterate through every item in first list
     for item in list1:
+        # during each iteration of first list, also iterate through second list
+        # this is terribly inefficient!
         for second_item in list2:
             if item == second_item:
                 common_items.append(item)
@@ -95,14 +101,13 @@ def find_unique_common_items(list1, list2):
         [1, 2]
 
     """
-    common_items = []
 
-    for item in list1:
-        for second_item in list2:
-            if item == second_item:
-                common_items.append(item)
+    # convert each list to set; will remove duplicates
+    set1 = set(list1)
+    set2 = set(list2)
 
-    unique_set = set(common_items)
+    # use & operator to find common values between set1 and set2
+    unique_set = set1 & set2
 
     return unique_set
 
@@ -143,13 +148,16 @@ def get_sum_zero_pairs(input_list):
     for item in input_list:
         # iterating over list a second time
         for other_item in input_list:
+            # if they're a zero pair, add to dictionary
             if item + other_item == 0:
                 zero_pair = (item, other_item)
                 zero_alt = (other_item, item)
                 if zero_pair not in all_zero_pairs and zero_alt not in all_zero_pairs:
                     all_zero_pairs[zero_pair] = None
 
-    return all_zero_pairs.keys()
+    zero_pairs = all_zero_pairs.keys()
+
+    return zero_pairs
 
 
 def remove_duplicates(words):
@@ -172,6 +180,7 @@ def remove_duplicates(words):
 
     no_duplicates = {}
 
+    # adding all words to a dictionary, since dictionaries cannot contain duplicate keys.
     for word in words:
         no_duplicates[word] = None
 
@@ -189,12 +198,22 @@ def encode(phrase):
         'You drp d bpduouful, odlpnopd, brulludno, powprful musk ox.'
     """
 
-    phrase = phrase.replace('e', 'p')
-    phrase = phrase.replace('a', 'd')
-    phrase = phrase.replace('t', 'o')
-    phrase = phrase.replace('i', 'u')
+    encode_dict = {
+        'e': 'p',
+        'a': 'd',
+        't': 'o',
+        'i': 'u'
+    }
 
-    return phrase
+    new_phrase = ""
+
+    # iterate through letters and replace with desired letter.
+    for letter in phrase:
+        if letter in encode_dict:
+            letter = encode_dict[letter]
+        new_phrase += letter
+
+    return new_phrase
 
 
 def sort_by_word_length(words):
@@ -212,10 +231,13 @@ def sort_by_word_length(words):
     """
     word_lengths = {}
 
+    # iterate through list of words
     for word in words:
+        # append word lengths to dictionary, set value to word & store in a list
         if len(word) not in word_lengths:
             word_lengths[len(word)] = [word]
         else:
+            # if word length is already in dictionary, append value
             word_lengths[len(word)].append(word)
 
     return word_lengths.items()
@@ -278,18 +300,21 @@ def get_pirate_talk(phrase):
         "lawyer" : "foul blaggart",
         "the": "th\'",
         "restroom" : "head",
-        "my":"me",
+        "my": "me",
         "hello" : "avast",
-        "is":"be",
+        "is": "be",
         "man": "matey"}
 
+    # split string into list so I can iterate by words.
     phrase_list = phrase.split()
 
     pirate_words = []
 
     for word in phrase_list:
+        # if the word is in pirate dictioary, replace word with its corresponding key.
         if word in pirate_dict:
             word = pirate_dict[word]
+        # all all words to the new, 'translated', list.
         pirate_words.append(word)
 
     pirate_words = " ".join(pirate_words)
@@ -299,31 +324,51 @@ def get_pirate_talk(phrase):
 # # End of skills. See below for advanced problems.
 # # To work on them, set ADVANCED=True at the top of this file.
 # ############################################################################
-#
-#
-# def adv_get_top_letter(input_string):
-#     """Given an input string, return a list of letter(s) which
-#     appear(s) the most the input string.
-#
-#     If there is a tie, the order of the letters in the returned
-#     list should be alphabetical.
-#
-#     For example:
-#         >>> adv_get_top_letter("The rain in spain stays mainly in the plain.")
-#         ['i', 'n']
-#
-#     If there is not a tie, simply return a list with one item.
-#
-#     For example:
-#         >>> adv_get_top_letter("Shake it off, shake it off. Shake it off, Shake it off.")
-#         ['f']
-#
-#     Spaces do not count as letters.
-#
-#     """
-#
-#     return ''
-#
+
+
+def adv_get_top_letter(input_string):
+    """Given an input string, return a list of letter(s) which
+    appear(s) the most the input string.
+
+    If there is a tie, the order of the letters in the returned
+    list should be alphabetical.
+
+    For example:
+        >>> adv_get_top_letter("The rain in spain stays mainly in the plain.")
+        ['i', 'n']
+
+    If there is not a tie, simply return a list with one item.
+
+    For example:
+        >>> adv_get_top_letter("Shake it off, shake it off. Shake it off, Shake it off.")
+        ['f']
+
+    Spaces do not count as letters.
+
+    """
+
+    # initialize empty dictionary.
+    letter_freq = {}
+
+    # for each letter in string, add to empty dictionary.
+    for letter in input_string.lower():
+        if letter == " " or letter in ".,!?#$":
+            pass
+        else:
+            letter_freq[letter] = letter_freq.get(letter, 0) + 1
+
+    # turn dictionary into tuples
+    freq_first = []
+
+    for letter, freq in letter_freq.items():
+        freq_first.append((freq, letter))
+
+    print sorted(freq_first)
+
+    # at this point, I have a list of tuples sorted by letter frequency, but not sure what to do.
+
+    return ''
+
 # def adv_alpha_sort_by_word_length(words):
 #     """
 #     Given a list of words, return a list of tuples, ordered by word-length.

@@ -32,7 +32,7 @@
     function changeText(evt) {
         var text = $("#text-to-change");
         text.css("font-size", "25px");
-        text.css("color", "red");
+        text.css("color", "blue");
     }
 
     // attach event handler
@@ -58,6 +58,8 @@
         var image = $("#lightbulb-img");
         if (image.attr('src').indexOf("bulboff") !== -1) {
             image.attr('src', "static/img/pic_bulbon.gif");
+        } else {
+          image.attr('src', 'static/img/pic_bulboff.gif');
         }
     }
 
@@ -91,8 +93,8 @@
         // Get the value of input field with id="number-input"
         number = $('#number-input').val();
 
-        // If 'number' is Not a Number or less than one or greater than 10
-        if (isNaN(number) || number < 1 || number > 10) {
+        // If 'number' is Not a Number or less than one or greater than 100
+        if (isNaN(number) || number < 1 || number > 100) {
             text = "Input not valid";
         } else {
             text = "Input OK";

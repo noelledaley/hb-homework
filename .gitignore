@@ -1,3 +1,4 @@
 *.pyc
 *test.py
 sales-report3.py
+env/

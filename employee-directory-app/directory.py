@@ -13,7 +13,7 @@ def home():
     return render_template("home.html")
 
 
-@app.route("/employee_search")
+@app.route("/search")
 def get_employee_details():
     """this is the 'action' we use for our searches. It returns the employee details page """
 

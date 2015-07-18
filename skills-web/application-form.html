@@ -1,37 +1,38 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title></title>
+    <title>Apply to UberMelon</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
     <h1>Apply to UberMelon</h1>
     
-    <p>Hi there! Thank you for your interest in UberMelon. To submit your application, please answer the following questions.</p>
+    <p id="instructions">Hi there! Thank you for your interest in UberMelon. To submit your application, please answer the following questions.</p>
     
     <form action="/application" method="post">
         <label>First Name:
-            <input type="text" name="first_name">
+            <input type="text" name="first_name" class="yellow-input">
         </label>
-        <br>
+
         
         <label>Last Name:
-            <input type="text" name="last_name">
+            <input type="text" name="last_name" class="yellow-input">
         </label>
-        <br>
+
         
         <label>Salary Requirement:
-            <input type="text" name="salary_requirement">
+            <input type="text" name="salary_requirement" class="yellow-input" placeholder="e.g. 50,000">
         </label>
-        <br>
+
         
         <label>Which job are you applying for?<br>
-            <input type="radio" name="job" value="QA Engineer">QA Engineer<br>
-            <input type="radio" name="job" value="Software Engineer">Software Engineer<br>
+            <input type="radio" name="job" value="QA Engineer">QA Engineer
+            <input type="radio" name="job" value="Software Engineer">Software Engineer
             <input type="radio" name="job" value="Product Manager">Product Manager   
         </label>
         
-        <br>
-        <input type="submit">
+
+        <input type="submit" class="yellow-input">
         
     </form>
 </body>

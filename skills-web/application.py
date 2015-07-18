@@ -9,7 +9,7 @@ def start_application():
 
 @app.route('/application', methods=["POST"])
 def confirm_application():
-    return render_template()
+    return render_template('confirmation.html')
 
 if __name__ == '__main__':
     app.run(debug=True)

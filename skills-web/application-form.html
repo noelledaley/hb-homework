@@ -4,36 +4,39 @@
     <title>Apply to UberMelon</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
+    
 <body>
-    <h1>Apply to UberMelon</h1>
-    
-    <p id="instructions">Hi there! Thank you for your interest in UberMelon. To submit your application, please answer the following questions.</p>
-    
-    <form action="/application" method="post">
-        <label>First Name:
-            <input type="text" name="first_name" class="yellow-input">
-        </label>
+    <div id="wrapper">
+        <h1>Apply to UberMelon</h1>
 
-        
-        <label>Last Name:
-            <input type="text" name="last_name" class="yellow-input">
-        </label>
+        <p id="instructions">Hi there! Thank you for your interest in UberMelon. To submit your application, please answer the following questions.</p>
 
-        
-        <label>Salary Requirement:
-            <input type="text" name="salary_requirement" class="yellow-input" placeholder="e.g. 50,000">
-        </label>
+        <form action="/application" method="post">
+            <label>First Name:
+                <input type="text" name="first_name" class="yellow-input">
+            </label>
 
-        
-        <label>Which job are you applying for?<br>
-            <input type="radio" name="job" value="QA Engineer">QA Engineer
-            <input type="radio" name="job" value="Software Engineer">Software Engineer
-            <input type="radio" name="job" value="Product Manager">Product Manager   
-        </label>
-        
 
-        <input type="submit" class="yellow-input">
-        
-    </form>
+            <label>Last Name:
+                <input type="text" name="last_name" class="yellow-input" id="last-name">
+            </label>
+
+
+            <label>Salary Requirement:
+                <input type="number" name="salary_requirement" class="yellow-input" placeholder="e.g. 50,000">
+            </label>
+
+
+            <label>Which job are you applying for?<br>
+                <input type="radio" name="job" value="QA Engineer">QA Engineer
+                <input type="radio" name="job" value="Software Engineer">Software Engineer
+                <input type="radio" name="job" value="Product Manager">Product Manager   
+            </label>
+
+
+            <input type="submit" class="yellow-input">
+
+        </form>
+    </div>
 </body>
 </html>

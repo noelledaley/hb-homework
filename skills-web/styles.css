@@ -1,18 +1,31 @@
+body {
+    font-family: sans-serif;
+}
+
+#wrapper {
+    width: 600px;
+    margin: 50px auto;
+}
+
 #instructions {
     border: 1px solid;
     padding: 1em;
+}
+
+form {
+    line-height: 2.5em;
+}
+
+form label {
+    display: block;
 }
 
 .yellow-input {
     background-color: yellow;
 }
 
-form {
-    line-height: 2em;
-}
-
-form label {
-    display: block;
+#last-name {
+    font-weight: bold;
 }
 
 input[type=radio] {

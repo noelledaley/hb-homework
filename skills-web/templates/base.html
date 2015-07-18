@@ -2,11 +2,13 @@
 <html>
 
   <head>
-    <title>{% block title %}TITLE GOES HERE {% endblock %}</title>
+    <title>{% block title %} TITLE GOES HERE {% endblock %}</title>
     <link rel="stylesheet" type="text/css" href="/static/styles.css"
   </head>
 
   <body>
+    <div id="wrapper">
     {% block content %} BODY CONTENT GOES HERE {% endblock %}
+    </div>
   </body>
 </html>

@@ -7,5 +7,8 @@ app = Flask(__name__)
 def start_application():
     return render_template('application-form.html')
 
+@app.route('/application')
+    return render_template()
+
 if __name__ == '__main__':
     app.run(debug=True)

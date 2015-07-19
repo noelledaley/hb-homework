@@ -97,6 +97,7 @@
 </fieldset>
 
 <script>
+
   var popUpButton = document.getElementById('popup-alert-button');
 
   function alertButton (evt) {
@@ -121,6 +122,7 @@
 </fieldset>
 
 <script>
+
   var messageToChange = document.getElementById('message-to-change');
   var goodbyeButton = document.getElementById('change-hello-to-goodbye-button')
 
@@ -158,7 +160,16 @@
 </fieldset>
 
 <script>
-  // code here for above problem
+
+  var form = document.getElementById('prevent-form-submission-form');
+
+  function preventFormSubmission (evt) {
+    alert('Nope.');
+    evt.preventDefault();
+  }
+
+  form.addEventListener('submit', preventFormSubmission);
+
 </script>
 
 <div class="hint">

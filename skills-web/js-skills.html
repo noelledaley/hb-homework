@@ -309,7 +309,16 @@
 </fieldset>
 
 <script>
-  // put your code here
+
+  var porcupineButton = $('#make-a-porcupine');
+
+
+  function showPorcupine(evt) {
+    setTimeout(function() {$('#cute-porcupine-image').fadeIn();}, 1000);
+  }
+
+  porcupineButton.on('click', showPorcupine);
+
 </script>
 
 <div class="hint">
@@ -341,7 +350,12 @@
 </fieldset>
 
 <script>
-  // put your code here
+
+  var agreeForm = $('#agreeable-form');
+  var agreeText = $('#agreeable-text');
+
+  agreeForm.on('submit', agreeText.prepend(''));
+
 </script>
 
 <div class="hint">

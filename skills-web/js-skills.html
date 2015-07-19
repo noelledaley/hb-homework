@@ -97,7 +97,12 @@
 </fieldset>
 
 <script>
-  // code here for above problem
+  var popUpButton = document.getElementById('popup-alert-button')
+  function alertButton (evt) {
+    alert('This is a popup!')
+  }
+
+  popUpButton.addEventListener('click', alertButton)
 </script>
 
 

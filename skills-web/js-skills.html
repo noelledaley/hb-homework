@@ -409,24 +409,29 @@
   <script>
 
     function playGame(evt) {
-      var playing = true
-      var secretNumber = Math.floor((Math.random() * 100) + 1)
+      var playing = true;
+      var secretNumber = Math.floor((Math.random() * 100) + 1);
 
       while (playing) {
-        var guess = prompt("I'm thinking of a number between 1 and 100. What is it?")
+        var guess = prompt("I'm thinking of a number between 1 and 100. What is it?");
 
         if (guess > secretNumber) {
-          alert('Too high!');
+          alert('Too high! Guess again.');
+          continue;
         } else if (guess < secretNumber) {
-          alert('Too low!');
+           alert('Too low! Guess again.');
+           continue;
         } else {
           alert('Congratulations! ' + secretNumber + ' was the secret number.');
         }
 
         playing = confirm('Press OK to keep playing or cancel to quit.');
+
+      }
+
     }
 
-    $('#play-guessing-game').on('submit', playGame);
+    $('#play-guessing-game').on('click', playGame);
 
   </script>
 

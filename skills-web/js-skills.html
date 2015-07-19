@@ -97,12 +97,13 @@
 </fieldset>
 
 <script>
-  var popUpButton = document.getElementById('popup-alert-button')
+  var popUpButton = document.getElementById('popup-alert-button');
+
   function alertButton (evt) {
-    alert('This is a popup!')
+    alert('This is a popup!');
   }
 
-  popUpButton.addEventListener('click', alertButton)
+  popUpButton.addEventListener('click', alertButton);
 </script>
 
 
@@ -120,7 +121,15 @@
 </fieldset>
 
 <script>
-  // code here for above-problem
+  var messageToChange = document.getElementById('message-to-change');
+  var goodbyeButton = document.getElementById('change-hello-to-goodbye-button')
+
+  function helloGoodbye(evt) {
+    messageToChange.innerText = "goodbye";
+  }
+
+  goodbyeButton.addEventListener('click', helloGoodbye);
+
 </script>
 
 <div class="hint">

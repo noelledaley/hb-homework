@@ -354,7 +354,13 @@
   var agreeForm = $('#agreeable-form');
   var agreeText = $('#agreeable-text');
 
-  agreeForm.on('submit', agreeText.prepend(''));
+  function agree(evt) {
+    var favoriteFood = $('#favorite-food-input').val();
+    evt.preventDefault();
+    agreeText.prepend('I like ' + favoriteFood + ', too.');
+  }
+
+  agreeForm.on('submit', agree);
 
 </script>
 

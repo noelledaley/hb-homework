@@ -237,7 +237,13 @@
 </fieldset>
 
 <script>
-  // code here for above problem
+
+  function alertHiddenButton(evt) {
+    alert('I found you!');
+  }
+
+  $('.tricky-to-find').on('click', alertHiddenButton);
+
 </script>
 
 <div class="hint">

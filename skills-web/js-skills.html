@@ -472,7 +472,29 @@
   </fieldset>
 
   <script>
-    // put your code here
+  
+  var guessInput = $('#try-this-number');
+  var guessMsg = $('#number-guessing-msg');
+    
+      function playGame2(evt) {
+        var playing = true;
+        var secretNumber2 = Math.floor((Math.random() * 100) + 1);
+        while (playing) {
+          var guess2 = guessInput;
+          if (guess2 > secretNumber2) {
+            guessMsg.html('Too high! Guess again.');
+            continue;
+          } else if (guess2 < secretNumber2) {
+             guessMsg.html('Too low! Guess again.');
+             continue;
+          } else {
+            alert('Congratulations! ' + secretNumber2 + ' was the secret number.');
+          }
+          playing = confirm('Press OK to keep playing or cancel to quit.');
+        }
+      }
+      $('#play-guessing-game-2').on('click', playGame2);
+ 
   </script>
 
 

@@ -1,0 +1,12 @@
+// From http://sqlzoo.net/wiki/More_JOIN_operations
+
+
+# 7 // Obtain the cast list for 'Casablanca'.
+SELECT actor.name FROM casting
+JOIN actor ON (casting.actorid = actor.id) WHERE movieid = 11768;
+
+# 8 // Obtain the cast list for the film 'Alien'
+SELECT name FROM casting
+JOIN actor ON (actor.id = actorid)
+JOIN movie ON (movieid = movie.id)
+WHERE movie.title='Alien';

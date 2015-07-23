@@ -29,10 +29,7 @@ def profile():
     # TODO: get the values from the rest of the form
     # Add them to jsonify
 
-    return jsonify({'user_name': user_name, })
-
-
-
+    return jsonify({'user_name': user_name, 'user_age': age, 'user_occupation': user_occupation, 'user_salary': user_salary, 'user_edu': user_edu, 'user_state': user_state, 'user_city': user_city, 'user_garden': user_garden, 'user_tv': user_tv})
 
 
 if __name__ == "__main__":

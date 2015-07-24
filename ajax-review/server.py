@@ -4,7 +4,7 @@ from flask import Flask, request, render_template, jsonify
 
 app = Flask(__name__)
 
-#There's no need to touch this file. 
+#There's no need to touch this file.
 
 FORTUNES = [
     "Tomorrow your code will <b>work properly</b>.",

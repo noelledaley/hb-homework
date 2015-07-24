@@ -18,6 +18,10 @@ $('#get-fortune-button').on('click', showFortune);
 function showWeather(evt) {
     evt.preventDefault();
     var url = "/weather?zipcode=" + $("#zipcode-field").val();
+    $.get(url, function(results) {
+      console.log(results);
+      $('#weather-info').html(results['forecast']);
+    })
     // TODO: request weather with that URL and show the forecast in #weather-info
 }
 

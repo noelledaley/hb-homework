@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.12: http://docutils.sourceforge.net/" />
+<title>AJAX Review</title>
+<link rel="stylesheet" href="http://fellowship.hackbrightacademy.com/tools/homework.css" type="text/css" />
+</head>
+<body>
+<div class="document" id="ajax-review">
+<h1 class="title">AJAX Review</h1>
+
+<pre class="literal-block">
+<strong>To:</strong> <a class="reference external" href="mailto:jrdev48&#64;ubermelon.co">jrdev48&#64;ubermelon.co</a> &lt;Junior Developer #48&gt;
+<strong>From:</strong> <a class="reference external" href="mailto:mmelitopolski&#64;ubermelon.co">mmelitopolski&#64;ubermelon.co</a> &lt;Mel Melitopolski&gt;
+<strong>Subject:</strong> IMPORTANT AJAX Review!
+<strong>Date:</strong> Thurs April 30, 2015 1:50:59 AM PDT
+
+Team!,
+
+That was some great work with the customer profile form.
+
+I was thinking, wouldn't it be awesome if we had some fun things
+on the site so when our customers want to order melons, they can
+also play games.
+
+Brilliant right!?
+
+Anyway, I got started on this and then realized the new episode of
+CSI: Cyber is on.
+
+Can you finish setting up the functionality with AJAX?
+
+Awesome.
+
+Thanks!!!
+Mel
+</pre>
+<p><strong>Goals:</strong></p>
+<ul class="simple">
+<li>practice basic AJAX patterns using .get()</li>
+</ul>
+<p>In this exercise, you'll be working with a small Flask application. It has three features:</p>
+<ul class="simple">
+<li>providing a random fortune</li>
+<li>provide a weather forecast for a zipcode</li>
+</ul>
+<p>Throughout this application, you'll find the documentation for jQuery super helpful!</p>
+<p><strong>To start:</strong></p>
+<ol class="arabic simple">
+<li>Create a virtual environment and install Flask into it</li>
+<li>Run the server and take a look at the index page.</li>
+</ol>
+<div class="section" id="part-1-random-fortune">
+<h1>Part 1: Random Fortune</h1>
+<p>We want the user to get a random fortune when the click the &quot;Get Fortune&quot; button.
+This fortune should appear in the #fortune-text div. This should not be a full HTML
+page, but be done using an AJAX-style call.</p>
+<p>There is already a route in the Flask server for this, at <cite>/fortune</cite>.</p>
+<p>Fill in the function in the Javascript file to load the text returned by this route
+and put it into the #fortune-text div.</p>
+</div>
+<div class="section" id="part-2-weather-harder">
+<h1>Part 2: Weather (Harder)</h1>
+<p>We want the user to be able to type in a zipcode and get a forecast back for that
+zipcode.</p>
+<p>There is already a route in the Flask server, <cite>/weather</cite>, that returns a JSON object
+like <tt class="docutils literal">{temp: TEMP, forecast: FORECAST}</tt>. We don't want to actually show the temperature
+on the page, though, just the forecast (this is a common pattern: APIs tend to return
+a lot of data, and we only want to show some.)</p>
+<p>Fill in the missing parts of the function in the Javascript file. You'll need to
+decide which kind of AJAX call to make, and how to extract the forecast from the
+JSON object you get back.</p>
+</div>
+</div>
+</body>
+</html>

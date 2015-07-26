@@ -157,9 +157,19 @@ FROM Brands AS b
 -- 2015    Chevrolet  Malibu
 -- 2015    Subaru     Outback
 
+INSERT INTO Models (year, name, brand_name)
+  VALUES (2015, 'Malibu', 'Chevrolet'), (2015, 'Outback', 'Subaru');
+
 -- 3. Write a SQL statement to crate a table called ``Awards``
 --    with columns ``name``, ``year``, and ``winner``. Choose
 --    an appropriate datatype and nullability for each column.
+
+CREATE TABLE Awards(
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  name VARCHAR(20),
+  year INTEGER,
+  winner VARCHAR(20)
+);
 
 -- 4. Write a SQL statement that adds the following rows to the Awards table:
 
@@ -167,6 +177,9 @@ FROM Brands AS b
 --   ----                 ----      ---------------
 --   IIHS Safety Award    2015      # get the ``id`` of the 2015 Chevrolet Malibu
 --   IIHS Safety Award    2015      # get the ``id`` of the 2015 Subaru Outback
+
+INSERT INTO Awards (name, year, winner)
+  VALUES ('IIHS Safety Award', 2015, (SELECT id FROM Models WHERE name = 'Malibu')),('IIHS Safety Award', 2015, (SELECT id FROM Models WHERE name = 'Outback'));
 
 -- 5. Using a subquery, select only the *name* of any model whose
 -- year is the same year that *any* brand was founded.

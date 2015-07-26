@@ -133,7 +133,11 @@ FROM Models AS m
     --     ON m.brand_name = b.name
     -- WHERE b.discontinued NOT NULL;
 
-
+    SELECT b.name, m.name, m.year, b.discontinued, (b.discontinued - m.year) AS years_until_brand_discontinued
+    FROM Models AS m
+      LEFT JOIN brands AS b
+        ON m.brand_name = b.name
+    WHERE b.discontinued NOT NULL;
 
 
 -- Part 3: Futher Study

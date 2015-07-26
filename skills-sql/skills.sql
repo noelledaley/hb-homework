@@ -97,7 +97,7 @@ FROM Models AS m
     SELECT m.name, m.brand_name, b.founded
     FROM Models AS m
       JOIN Brands AS b
-        ON m.brand_name = b.name
+        ON m.brand_name = b.name;
 
 -- followup question: In your own words, describe the difference between
 -- left joins and inner joins.
@@ -113,6 +113,12 @@ FROM Models AS m
     --   LEFT JOIN Models
     --     ON brands.name = Models.brand_name
     -- WHERE Models.year > 1940;
+
+    SELECT b.name, founded
+    FROM Brands AS b
+      LEFT JOIN Models AS m
+        ON b.name = m.brand_name
+      WHERE m.name IS NULL;
 
 -- 4. Modify the query to add another column to the results to show
 -- the number of years from the year of the model *until* the brand becomes discontinued

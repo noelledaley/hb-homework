@@ -15,18 +15,29 @@ SELECT brand_name, name FROM Models WHERE year = 1964;
 --    from the Models and Brands tables.
 
 SELECT m.name, m.brand_name, headquarters
-FROM Models AS m
-JOIN Brands AS b
-ON b.name = m.brand_name
-WHERE m.brand_name = 'Ford' AND m.name = 'Mustang';
+  FROM Models AS m
+  JOIN Brands AS b
+    ON b.name = m.brand_name
+    WHERE m.brand_name = 'Ford' AND m.name = 'Mustang';
 
 
 -- 5. Select all rows for the three oldest brands
 --    from the Brands table (Hint: you can use LIMIT and ORDER BY).
 
+SELECT *
+  FROM Brands
+  ORDER BY founded
+  LIMIT 3;
+
 -- 6. Count the Ford models in the database (output should be a **number**).
 
+SELECT count(*)
+  FROM Models
+  WHERE brand_name = 'Ford'
+
 -- 7. Select the **name** of any and all car brands that are not discontinued.
+
+
 
 -- 8. Select rows 15-25 of the DB in alphabetical order by model name.
 

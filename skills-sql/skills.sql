@@ -68,12 +68,22 @@ FROM Models AS m
 -- regardless of whether they have any cars in the cars table.
 -- before:
 
+  -- SELECT b.name,
+  --        b.founded,
+  --        m.name
+  -- FROM Model AS m
+  --   LEFT JOIN brands AS b
+  --     ON b.name = m.brand_name
+  -- WHERE b.discontinued IS NULL;
+
     SELECT b.name
     FROM Brands AS b
       LEFT JOIN Models AS m
         ON b.name = m.brand_name
       WHERE b.discontinued IS NULL
       GROUP BY b.name;
+
+      -- need to left join from Brands so all brands are shown.
 
 -- 2. Modify this left join so it only selects models that have brands in the Brands table.
 -- before:
@@ -84,8 +94,15 @@ FROM Models AS m
     --   LEFT JOIN Brands AS b
     --     ON b.name = m.brand_name;
 
+    SELECT m.name, m.brand_name, b.founded
+    FROM Models AS m
+      JOIN Brands AS b
+        ON m.brand_name = b.name
+
 -- followup question: In your own words, describe the difference between
 -- left joins and inner joins.
+
+-- Inner joins will select all records from Table A that have a matching record in Table B, omitting any records that have missing data. Left joins will display all records from Table A, regardless if there is a matching record in Table B.
 
 -- 3. Modify the query so that it only selects brands that don't have any car models in the cars table.
 -- (Hint: it should only show Tesla's row.)

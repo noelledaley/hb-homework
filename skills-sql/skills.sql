@@ -183,3 +183,7 @@ INSERT INTO Awards (name, year, winner)
 
 -- 5. Using a subquery, select only the *name* of any model whose
 -- year is the same year that *any* brand was founded.
+
+SELECT name, year
+FROM Models
+WHERE year IN (SELECT founded FROM Brands);

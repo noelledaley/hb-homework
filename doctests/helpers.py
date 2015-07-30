@@ -41,4 +41,6 @@ def unique(numbers):
 
 
 if __name__ == "__main__":
-    testmod()
+    result = testmod()
+    if not result.failed:
+        print "*** %s TESTS PASSED!" % result.attempted

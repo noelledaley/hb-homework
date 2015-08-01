@@ -28,9 +28,9 @@ class Brand(db.Model):
 
     brand_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
     name = db.Column(db.String(50), nullable=False)
-    founded = db.Column(db.Integer(4))
+    founded = db.Column(db.Integer)
     headquarters = db.Column(db.String(50))
-    discontinued = db.Column(db.Integer(4))
+    discontinued = db.Column(db.Integer)
 
 # End Part 1
 ##############################################################################

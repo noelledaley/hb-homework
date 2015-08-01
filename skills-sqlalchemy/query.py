@@ -22,10 +22,15 @@ init_app()
 # Part 2: Write queries
 
 # Get the brand with the **id** of 8.
+Brand.query.get(8)
 
 # Get all models with the **name** Corvette and the **brand_name** Chevrolet.
 
+Model.query.filter_by(name='Corvette', brand_name='Chevrolet').all()
+
 # Get all models that are older than 1960.
+
+Model.query.filter(Model.year < 1960).all()
 
 # Get all brands that were founded after 1920.
 

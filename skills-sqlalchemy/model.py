@@ -15,7 +15,11 @@ db = SQLAlchemy()
 class Model(db.Model):
 
     __tablename__ = "models"
-    pass
+
+    model_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
+    year = db.Column(db.Integer, nullable=False)
+    brand_name = db.Column(db.String(50), nullable=True)
+    name = db.Column(db.String(50), nullable=False)
 
 
 class Brand(db.Model):

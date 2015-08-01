@@ -16,21 +16,29 @@ class Model(db.Model):
 
     __tablename__ = "models"
 
-    model_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
+    id = db.Column(db.Integer, autoincrement=True, primary_key=True)
     year = db.Column(db.Integer, nullable=False)
     brand_name = db.Column(db.String(50), nullable=True)
     name = db.Column(db.String(50), nullable=False)
+
+    def __repr__(self):
+        """Provide helpful representation of object."""
+        return "<id:%s Brand name:%s Name:%s>" % (self.id, self.brand_name, self.name)
 
 
 class Brand(db.Model):
 
     __tablename__ = "brands"
 
-    brand_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
+    id = db.Column(db.Integer, autoincrement=True, primary_key=True)
     name = db.Column(db.String(50), nullable=False)
     founded = db.Column(db.Integer)
     headquarters = db.Column(db.String(50))
     discontinued = db.Column(db.Integer)
+
+    def __repr__(self):
+        """Provide helpful representation of object."""
+        return "<id:%s Name: %s>" % (self.id, self.name)
 
 # End Part 1
 ##############################################################################

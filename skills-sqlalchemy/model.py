@@ -25,7 +25,12 @@ class Model(db.Model):
 class Brand(db.Model):
 
     __tablename__ = "brands"
-    pass
+
+    brand_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
+    name = db.Column(db.String(50), nullable=False)
+    founded = db.Column(db.Integer(4))
+    headquarters = db.Column(db.String(50))
+    discontinued = db.Column(db.Integer(4))
 
 # End Part 1
 ##############################################################################

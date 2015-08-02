@@ -67,7 +67,19 @@ def get_brands_summary():
     '''Prints out each brand name, and each model name for that brand
      using only ONE database query.'''
 
-    
+    l = db.session.query(Brand.name, Model.name).join(Model).order_by(Brand.name).all()
+
+    brands = {}
+
+    for brand, model in l:
+        if not brands.get(brand):
+            brands[brand] = [model]
+        else:
+            brands[brand].append(model)
+
+    brands = {}
+
+    print brands
 
 # -------------------------------------------------------------------
 
@@ -86,5 +98,8 @@ def get_models_between(start_year, end_year):
 
 # 1. What is the returned value and datatype of ``Brand.query.filter_by(name='Ford')``?
 
+# A Flask-SQLAlchemy query object.
+
 # 2. In your own words, what is an association table, and what *type* of relationship
 # does an association table manage?
+# An association table joins tables with a many to many relationship.

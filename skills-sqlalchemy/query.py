@@ -88,15 +88,19 @@ def get_brands_summary():
 def search_brands_by_name(mystr):
     """Design a function in python that takes in any string as parameter, and returns a list of objects that are brands whose name contains or is equal to the input string."""
 
-    l = Brand.query.filter(db.or_(Brand.name == mystr, Brand.name.like('%\%s%' % mystr))).all()
+    q = Brand.query.filter(db.or_(Brand.name == mystr, Brand.name.like('%\%s%' % mystr))).all()
 
     # TODO: figure out proper string substitution
 
-    return l
+    return q
 
 
 def get_models_between(start_year, end_year):
-    pass
+    """Design a function that takes in a start year and end year (two integers), and returns a list of objects that are models with years that fall between the start year and end year."""
+
+    q = Model.query.filter(Model.year > start_year, Model.year < end_year).all()
+
+    return q
 
 # -------------------------------------------------------------------
 

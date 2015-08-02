@@ -31,10 +31,12 @@ class Brand(db.Model):
     __tablename__ = "brands"
 
     id = db.Column(db.Integer, autoincrement=True, primary_key=True)
-    name = db.Column(db.String(50), nullable=False)
+    name = db.Column(db.String(50), nullable=False, db.ForeignKey("models.brand_name"))
     founded = db.Column(db.Integer)
     headquarters = db.Column(db.String(50))
     discontinued = db.Column(db.Integer)
+
+    model = db.relationship("Model", backref=db.backref("brands", order_by=id))
 
     def __repr__(self):
         """Provide helpful representation of object."""

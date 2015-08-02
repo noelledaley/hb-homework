@@ -86,7 +86,13 @@ def get_brands_summary():
 
 # Part 2.5: Advanced and Optional
 def search_brands_by_name(mystr):
-    pass
+    """Design a function in python that takes in any string as parameter, and returns a list of objects that are brands whose name contains or is equal to the input string."""
+
+    l = Brand.query.filter(db.or_(Brand.name == mystr, Brand.name.like('%\%s%' % mystr))).all()
+
+    # TODO: figure out proper string substitution
+
+    return l
 
 
 def get_models_between(start_year, end_year):
